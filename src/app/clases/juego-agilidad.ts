@@ -1,5 +1,4 @@
 export class JuegoAgilidad {
-    // Agrego para que no rompa
-    numeroIngresado;
-    gano;
+    public numeroIngresado:Number;
+    public gano:String;
 }

@@ -735,7 +735,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/cabecera/cabecera.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\n  <div class=\"hero-text\">\n      <h1 style=\"font-size:50px\">Sala de Juegos</h1>\n      <p>Octavio villegas</p>\n      <a href=\"https://github.com/octaviovillegas\"target=\"_blank\">en GitHub <i class=\"fa fa-github\"></i></a>\n      <a  routerLink=\"/QuienSoy\" >Quien Soy? <i class=\"fa fa-user\"></i></a>\n  </div>\n  <ul class=\"nav navbar-nav navbar-right\">\n          <li><a routerLink=\"/Registro\"><span class=\"glyphicon glyphicon-user\"></span>Registrarse</a></li>\n          <li><a  routerLink=\"/Login\"><span class=\"glyphicon glyphicon-log-in\"></span> Ingresar</a></li>\n  </ul>\n</div>\n"
+module.exports = "<div class=\"panel panel-default\">\n  <div class=\"hero-text\">\n      <h1 style=\"font-size:50px\">Sala de Juegos</h1>\n      <p>Hamie Matias</p>\n      <a href=\"https://github.com/matiashamie\"target=\"_blank\">en GitHub <i class=\"fa fa-github\"></i></a>\n      <a  routerLink=\"/QuienSoy\" >Quien Soy? <i class=\"fa fa-user\"></i></a>\n  </div>\n  <ul class=\"nav navbar-nav navbar-right\">\n          <li><a routerLink=\"/Registro\"><span class=\"glyphicon glyphicon-user\"></span>Registrarse</a></li>\n          <li><a  routerLink=\"/Login\"><span class=\"glyphicon glyphicon-log-in\"></span> Ingresar</a></li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -796,7 +796,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/error/error.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"panel panel-default\">\n    <div class=\"hero-text\">\n        <h1 style=\"font-size:50px\">Sala de Juegos</h1>\n        <p>Octavio villegas</p>\n        <a href=\"https://github.com/octaviovillegas\"target=\"_blank\">en GitHub <i class=\"fa fa-github\"></i></a>\n        <a  routerLink=\"/QuienSoy\"target=\"_blank\">Quien Soy? <i class=\"fa fa-github\"></i></a>\n    </div>\n    <ul class=\"nav navbar-nav navbar-right\">\n            <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>Registrase</a></li>\n            <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Ingresar</a></li>\n          </ul>\n</div>"
+module.exports = "\n\n<div class=\"panel panel-default\">\n    <div class=\"hero-text\">\n        <h1 style=\"font-size:50px\">Sala de Juegos</h1>\n        <p>Hamie Matias</p>\n        <a href=\"https://github.com/matiashamie\"target=\"_blank\">en GitHub <i class=\"fa fa-github\"></i></a>\n        <a  routerLink=\"/QuienSoy\"target=\"_blank\">Quien Soy? <i class=\"fa fa-github\"></i></a>\n    </div>\n    <ul class=\"nav navbar-nav navbar-right\">\n            <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>Registrase</a></li>\n            <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Ingresar</a></li>\n          </ul>\n</div>"
 
 /***/ }),
 

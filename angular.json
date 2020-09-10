@@ -22,7 +22,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
@@ -80,7 +80,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
@@ -134,7 +134,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "style": "css"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"
