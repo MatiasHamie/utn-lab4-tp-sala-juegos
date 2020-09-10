@@ -4,9 +4,10 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 // import { HttpClient, HttpResponse } from "@angular/common/http";
 import {HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+import { map, catchError } from "rxjs/operators";
+// import 'rxjs/add/operator/catch';
+// import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -36,8 +37,10 @@ export class MiHttpService {
   public httpGetO ( url: string): Observable<Response>
   {
     return this.http.get( url )
-      .map( ( res: Response ) => res.json())
-      .catch( ( err: any ) => Observable.throw(err.json().error || 'Server error'));
+      .pipe(
+          map(( res: Response ) => res.json()),
+          catchError(( err: any ) => Observable.throw(err.json().error || 'Server error'))
+      );
   }
 
 
