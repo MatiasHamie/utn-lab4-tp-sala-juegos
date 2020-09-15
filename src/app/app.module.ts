@@ -57,6 +57,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
+// import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
+    // MatIconModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

@@ -1,4 +1,4 @@
-
+/*
 form {
     border: 10px solid #f1f1f1;
     padding: 10px;
@@ -15,7 +15,6 @@ input[type=text], input[type=password] {
 }
 
 button {
-    /*background-color: #4CAF50;*/
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -57,7 +56,6 @@ span.psw {
     padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
        display: block;
@@ -70,35 +68,10 @@ span.psw {
 
 
 
-#snackbar {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-   
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-#snackbar.Ganador {
-    background-color: #059F2F;
-}
-#snackbar.Perdedor {
-    background-color: #FF0000;
-}
-#snackbar.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
+
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
+    from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
 
@@ -108,11 +81,39 @@ span.psw {
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+} */
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#snackbar.Ganador {
+  background-color: #059F2F;
+}
+#snackbar.Perdedor {
+  background-color: #FF0000;
+}
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  font-size: 17px;
 }
