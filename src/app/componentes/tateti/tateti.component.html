@@ -1,0 +1,19 @@
+<div class="container" style="width: 400px; height: 400px;">
+  <div *ngIf="turnoUsuario" class="text-center">
+    <h1 class="text-warning">Tu turno</h1>
+  </div>
+  <div>
+    <mat-grid-list cols="3" rowHeight="70px:70px">
+      <mat-grid-tile *ngFor="let cuadrado of cuadradosGrilla; let i = index" [colspan]="cuadrado.columnas"
+        [rowspan]="cuadrado.filas" [style.background]="cuadrado.color" (click)="usuarioColocaLaX(i)">
+        {{cuadrado.texto}}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div *ngIf="ganoUsuario" class="bg-primary text-center mt-5">
+    <h1 class="text-white">Ganaste!!</h1>
+  </div>
+  <div *ngIf="ganoPC" class="bg-danger text-center mt-5">
+    <h1 class="text-white">Perdiste!!</h1>
+  </div>
+</div>

@@ -1,78 +1,73 @@
-<app-cabecera>  </app-cabecera>
+<div class="container-fluid bg-muted">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="display-4 text-secondary">Menú Principal</h1>
+    </div>
+  </div>
+  <div class="row flex d-flex justify-content-center align-items-center mt-3">
+    <div class="col">
 
+      <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
+        <div class="card-header">
+          <img src="./assets/imagenes/saladejuegos.png" class="card-img-top">
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Juegos</h4>
+          <div class="text-black text-center">
+            <p>
+              El método lúdico es un conjunto de estrategias diseñadas para crear un
+              ambiente de armonía en los estudiantes que están inmersos en el proceso de
+              aprendizaje. Este método busca que los alumnos se apropien de los temas
+              impartidos por los docentes utilizando el juego.
+            </p>
+            <a class="btn btn-warning" routerLink="/Juegos">Ir a Juegos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
+        <div class="card-header">
+          <img src="./assets/imagenes/listado.jpg" class="card-img-top">
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Listado de resultados</h4>
+          <div class="text-black text-center">
+            <p>Los listados de los resultados con ordenamiento y busqueda</p>
+            <a class="btn btn-warning" routerLink="/Listado">Ver Resultados</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col">
+      <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
+        <div class="card-header">
+          <img src="./assets/imagenes/Configuracion.png" class="card-img-top">
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Configuraci&oacute;n</h4>
+          <div class="text-black text-center">
+            <p>Ajustes de la aplicacion y los métodos de autentificación</p>
+            <a class="btn btn-warning" routerLink="/Juegos">Ir a Configuracion</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
- 
-<div class="container" >
-   
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-danger">
-           
-                <div class="media-body">
-                    <div class="hero-text">
-                        <h4 >Menú Principal</h4>
-                    </div>
-                 </div>
-               
-             
-          </li>
-        <li class="list-group-item list-group-item-success">
-          <a routerLink="/Juegos">
-            <div class="media">
-              <div class="media-left">
-                    <img src="./assets/imagenes/saladejuegos.png" class="media-object imagenDeMenu" >
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading">Juegos</h4>
-                <p>El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-        <li class="list-group-item list-group-item-info">
-            <a routerLink="/Listado">
-              <div class="media">
-                  <div class="media-left">
-                      <img src="./assets/imagenes/listado.jpg" class="media-object imagenDeMenu" >
-                    </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Listados de resultados</h4>
-                  <p>Los listados de los resultados con ordenamiento y busqueda</p>
-                </div>
-                
-              </div> 
-            </a>
-          </li>
-        <li class="list-group-item list-group-item-warning">
-          <a routerLink="/Juegos">
-            <div class="media">
-                <div class="media-left">
-                    <img src="./assets/imagenes/Configuracion.png" class="media-object imagenDeMenu" >
-                  </div>
-              <div class="media-body">
-                <h4 class="media-heading">Configuraci&oacute;n</h4>
-                <p>Ajustes de la aplicacion y los métodos de autentificación</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-        <li class="list-group-item list-group-item-warning">
-          <a routerLink="/Jugadores">
-            <div class="media">
-                <div class="media-left">
-                    <img src="./assets/imagenes/jugadores.png" class="media-object imagenDeMenu" >
-                  </div>
-              <div class="media-body">
-                <h4 class="media-heading">Jugadores</h4>
-                <p>Listado de jugadores</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-       
-        
-      </ul>
+    <div class="col">
+      <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
+        <div class="card-header">
+          <img src="./assets/imagenes/jugadores.png" class="card-img-top">
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Juegos</h4>
+          <div class="text-black text-center">
+            <p>Listado de jugadores</p>
+            <a class="btn btn-warning" routerLink="/Jugadores">Ver Lista de Jugadores</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
