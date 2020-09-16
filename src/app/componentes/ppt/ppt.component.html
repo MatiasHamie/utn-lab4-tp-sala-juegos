@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <button type="button" class="btn btn-outline-info my-5" [routerLink]="['/Juegos']">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <div id="user-label">Elegiste: {{eleccionUsuario | uppercase}}</div><br>
+    </div>
+    <div class="col text-center">
+      <div id="comp-label">Computadora : {{eleccionPC | uppercase}}</div>
+    </div>
+  </div>
+
+
+  <div class="result">
+    <p *ngIf="estadoPartida">{{eleccionUsuario | uppercase}} {{resultadoFinal}} {{eleccionPC | uppercase}}
+      {{estadoPartida}} </p>
+  </div>
+
+  <div class="choices">
+    <div class="choice" id="piedra">
+      <img src="../../../assets/imagenes/piedra.png" (click)='userPick("piedra")'>
+    </div>
+    <div class="choice" id="papel">
+      <img src="../../../assets/imagenes/papel.jpg" (click)='userPick("papel")'>
+    </div>
+    <div class="choice" id="tijera">
+      <img src="../../../assets/imagenes/tijera.jpg" (click)='userPick("tijera")'>
+    </div>
+  </div>
+
+  <p id="action-message" *ngIf="!estadoPartida">Podes elegir</p>
+</div>

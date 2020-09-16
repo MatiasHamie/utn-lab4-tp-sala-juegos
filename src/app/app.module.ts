@@ -58,6 +58,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
+import { PptComponent } from './componentes/ppt/ppt.component';
+import { MatchingGameComponent } from './componentes/matching-game/matching-game.component';
 // import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
@@ -85,7 +87,9 @@ import {MatInputModule} from '@angular/material/input';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    TatetiComponent
+    TatetiComponent,
+    PptComponent,
+    MatchingGameComponent
   ],
   imports: [
     BrowserModule,
