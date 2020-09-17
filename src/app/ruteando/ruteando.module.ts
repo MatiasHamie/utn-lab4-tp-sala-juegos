@@ -24,13 +24,11 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
-import { MatchingGameComponent } from '../componentes/matching-game/matching-game.component';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
   { path: 'Jugadores', component: JugadoresListadoComponent },
-  { path: '', component: PrincipalComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Mapa', component: MapaDeGoogleComponent },
   { path: 'QuienSoy', component: QuienSoyComponent },
@@ -50,10 +48,10 @@ const MiRuteo = [
       { path: 'Agilidad', component: AgilidadAritmeticaComponent },
       { path: 'Anagrama', component: AnagramaComponent },
       { path: 'Tateti', component: TatetiComponent },
-      { path: 'ppt', component: PptComponent },
-      { path: 'cartas', component: MatchingGameComponent }
+      { path: 'ppt', component: PptComponent }
     ]
   },
+  { path: '', component: PrincipalComponent },
   { path: '**', component: ErrorComponent },
   { path: 'error', component: ErrorComponent }];
 

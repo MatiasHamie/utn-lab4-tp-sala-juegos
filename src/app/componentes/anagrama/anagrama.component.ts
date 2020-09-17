@@ -27,10 +27,18 @@ export class AnagramaComponent implements OnInit {
   palabraSecreta: string = '';
   palabraSecretaMezclada: string = '';
   palabraIngresada: string = '';
+  mensajeAlUsuario: boolean = false;
+  gano: boolean = false;
+  temporizador: any;
+  tiempo: any = 3;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  nuevoJuego(){
+    this.gano = false;
     this.palabraSecreta = this.palabrasParaAdivinar[Math.floor(Math.random() * this.palabrasParaAdivinar.length + 1)];
 
     let arrayDeCaracteresOrdenados = [...this.palabraSecreta];
@@ -40,19 +48,23 @@ export class AnagramaComponent implements OnInit {
     .sort((a, b) => a.sort - b.sort) //Las ordeno de menor a mayor
     .map((a) => a.value)//Hago una copia de los value al array nuevo
     .toString().replace(/[\,]/gm, " ");
-    // console.log('GANASTE!!!');
+
   }
 
   verificar(){
-    // let indiceRandom = Math.floor(Math.random() * arrayDeCaracteres.length + 1)
-    // console.log(arrayDeCaracteres);
-    // console.log('Tam array: '+ arrayDeCaracteres.length);
-    // console.log('random: ' + indiceRandom);
-    // console.log(this.palabrasParaAdivinar);
-    if(this.palabraIngresada == this.palabraSecreta){
-      alert('GANASTE!!!');
+    if(this.palabraIngresada.toLowerCase() == this.palabraSecreta.toLowerCase()){
+      this.gano = true;
     } else {
-      alert('Ah pero sos malisima!!');
+      this.mensajeAlUsuario = true;
+      this.temporizador = setInterval(() => {//Comienza a correr el tiempo
+        this.tiempo--;
+        console.log("tiempo: ", this.tiempo);
+        if (this.tiempo == 0) {
+          clearInterval(this.temporizador);//Borro el contador
+          this.tiempo = 3;
+          this.mensajeAlUsuario = false;
+        }
+      }, 900);
     }
   }
 }

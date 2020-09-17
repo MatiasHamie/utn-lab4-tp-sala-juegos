@@ -7,6 +7,16 @@
       </button>
     </div>
   </div>
+  <div class="row mt-4 text-center" >
+    <div class="col">
+      <h2>La palabra desordenada</h2>
+    </div>
+  </div>
+  <div class="row mt-1 text-center" >
+    <div class="col">
+      <h1>{{palabraSecretaMezclada | uppercase}}</h1>
+    </div>
+  </div>
   <div class="row flex d-flex flex-column">
     <div class="col bg-primary text-center" style="border-radius: 15px;">
       <form>
@@ -14,20 +24,26 @@
           <label for="palabraIngresadaInput" class="text-white">Ingresar la palabra ordenada</label>
           <input type="text" class="form-control" placeholder="Ingresar aqui" autocomplete="off"
             name="palabraIngresadaInput" [(ngModel)]="palabraIngresada">
-          <button type="button" class="btn btn-warning mt-3" (click)="verificar()">Prueba</button>
+            <button type="button" class="btn btn-warning mt-3" (click)="verificar()" *ngIf="!mensajeAlUsuario">Verificar</button>
+            <button type="button" class="btn btn-danger mt-3 ml-3" (click)="nuevoJuego()" *ngIf="!mensajeAlUsuario">Nueva Palabra</button>
         </div>
       </form>
       <div class="col text-white pb-3" style="font-size: large;" *ngIf="palabraIngresada">
         {{'Palabra Ingresada: ' + palabraIngresada }}
       </div>
     </div>
-
-    <div class="row">
-      {{'Palabra Mezclada: ' + palabraSecretaMezclada }}
-    </div>
     <!-- <div class="row">
       {{'Palabra Secreta: ' + palabraSecreta }}
     </div> -->
+  </div>
+
+  <div class="row">
+    <div class="col-6 mt-4 bg-success" *ngIf="gano">
+      <p class="text-center"  style="color: white; font-size: large;" >Ganaste!</p>
+    </div>
+    <div class="col-6 mt-4 bg-danger" *ngIf="mensajeAlUsuario">
+      <p class="text-center"  style="color: white; font-size: large;" >ERROR! Segui Intentando!</p>
+    </div>
   </div>
 </div>
 

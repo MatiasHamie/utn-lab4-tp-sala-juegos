@@ -59,8 +59,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import { PptComponent } from './componentes/ppt/ppt.component';
-import { MatchingGameComponent } from './componentes/matching-game/matching-game.component';
+
+import { ReactiveFormsModule } from "@angular/forms";
 // import {MatIconModule} from '@angular/material/icon';
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -88,8 +93,7 @@ import { MatchingGameComponent } from './componentes/matching-game/matching-game
     InputJugadoresComponent,
     SexoPipe,
     TatetiComponent,
-    PptComponent,
-    MatchingGameComponent
+    PptComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +105,10 @@ import { MatchingGameComponent } from './componentes/matching-game/matching-game
     }),
     BrowserAnimationsModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
     // MatIconModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo

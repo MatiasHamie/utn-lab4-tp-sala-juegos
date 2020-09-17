@@ -1,4 +1,4 @@
-<div class="container-fluid bg-muted">
+<div class="container-fluid bg-muted" *ngIf="usuarioConectado$ | async as user">
   <div class="card-group">
     <div class="row flex d-flex justify-content-center align-items-center mt-3">
       <div class="col">

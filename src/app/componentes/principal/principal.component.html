@@ -1,12 +1,11 @@
-<div class="container-fluid bg-muted">
-  <div class="row">
+<div class="container-fluid bg-muted" *ngIf="usuarioConectado$ | async as user">
+  <div class="row" *ngIf="user">
     <div class="col text-center">
       <h1 class="display-4 text-secondary">Menú Principal</h1>
     </div>
   </div>
   <div class="row flex d-flex justify-content-center align-items-center mt-3">
-    <div class="col">
-
+    <div class="col" *ngIf="user">
       <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
         <div class="card-header">
           <img src="./assets/imagenes/saladejuegos.png" class="card-img-top">
@@ -25,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" *ngIf="user">
       <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
         <div class="card-header">
           <img src="./assets/imagenes/listado.jpg" class="card-img-top">
@@ -34,13 +33,13 @@
           <h4 class="text-center">Listado de resultados</h4>
           <div class="text-black text-center">
             <p>Los listados de los resultados con ordenamiento y busqueda</p>
-            <a class="btn btn-warning" routerLink="/Listado">Ver Resultados</a>
+            <a class="btn btn-warning" routerLink="/Error">Ver Resultados</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col">
+    <div class="col" *ngIf="user">
       <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
         <div class="card-header">
           <img src="./assets/imagenes/Configuracion.png" class="card-img-top">
@@ -49,13 +48,13 @@
           <h4 class="text-center">Configuraci&oacute;n</h4>
           <div class="text-black text-center">
             <p>Ajustes de la aplicacion y los métodos de autentificación</p>
-            <a class="btn btn-warning" routerLink="/Juegos">Ir a Configuracion</a>
+            <a class="btn btn-warning" routerLink="/Error">Ir a Configuracion</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col">
+    <div class="col" *ngIf="user">
       <div class="card bg-secondary text-white mb-3" style="width: 18rem; border-radius: 20px;">
         <div class="card-header">
           <img src="./assets/imagenes/jugadores.png" class="card-img-top">
@@ -64,7 +63,7 @@
           <h4 class="text-center">Juegos</h4>
           <div class="text-black text-center">
             <p>Listado de jugadores</p>
-            <a class="btn btn-warning" routerLink="/Jugadores">Ver Lista de Jugadores</a>
+            <a class="btn btn-warning" routerLink="/Error">Ver Lista de Jugadores</a>
           </div>
         </div>
       </div>

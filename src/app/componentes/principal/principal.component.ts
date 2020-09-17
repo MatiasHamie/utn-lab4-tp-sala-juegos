@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -7,15 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
+
+ usuarioConectado$: Observable<any> = this.firebase.afAuth.user;
+
  public status: any = {
     isFirstOpen: true,
     isFirstDisabled: false
   };
-  constructor() {  }
+  constructor(private firebase: AuthService) {  }
 
   ngOnInit() {
   }
 
- 
+
 
 }

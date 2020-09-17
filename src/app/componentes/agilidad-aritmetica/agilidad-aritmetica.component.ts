@@ -48,10 +48,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.reiniciarTemporizadorYOcultoBotones();
     if (this.nuevoJuego.numeroIngresado == this.operacionRandomAritmeticaRealizada) {
       this.nuevoJuego.gano = true;
-      alert('GANO');
+      // alert('GANO');
     } else {
       this.nuevoJuego.gano = false;
-      alert('PERDIO');
+      // alert('PERDIO');
     }
   }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { AuthService } from '../../servicios/auth.service';
 @Component({
   selector: 'app-menu-card',
   templateUrl: './menu-card.component.html',
@@ -7,8 +10,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MenuCardComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-    private router: Router) { }
+  usuarioConectado$: Observable<any> = this.firebase.afAuth.user;
+
+  constructor(private firebase: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
 
   ngOnInit() {

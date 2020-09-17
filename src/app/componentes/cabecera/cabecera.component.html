@@ -1,20 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#">Sala de Juegos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav w-100 nav-justified">
+  <div class="navbar-nav" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/Principal']">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link text-white bg-success" style="border-radius: 10px;" routerLink="/Login" *ngIf="!estaLogeado"> Ingresar (LOGIN) para continuar</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mx-auto" *ngIf="usuarioConectado$ | async as user">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/Juegos']">Juegos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/Registro">Registrarse</a>
+        <a class="nav-link" routerLink="/Registro" *ngIf="!user">Registrarse</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/Login"> Ingresar</a>
+        <a class="nav-link  text-white bg-danger" style="border-radius: 10px;" *ngIf="user" (click)="logout()">Desloguearse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white bg-primary" style="border-radius: 10px;" *ngIf="user"> {{'Usuario conectado: ' + user?.email }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/matiashamie" target="_blank">Matias Hamie en GitHub <i
