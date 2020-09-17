@@ -26,6 +26,7 @@
                   </label>
                 </div>
               </div>
+              <p class="description" *ngIf="!aceptoTerminos">Debe aceptar los terminos y condiciones</p>
               <p class="description">Ya tenes una cuenta? <a href="#" [routerLink]="['/Login']">LOGUEATE ACA</a></p>
           </form>
           <!-- Form end -->

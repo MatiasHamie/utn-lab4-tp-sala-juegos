@@ -12,7 +12,8 @@ import { AuthService } from '../../servicios/auth.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  aceptoTerminos: boolean = false;
+  aceptoTerminos: boolean;
+  mensaje: string = '';
 
   // No olvidar el import en appModule de:
   // import { ReactiveFormsModule } from '@angular/forms'
@@ -25,7 +26,6 @@ export class RegistroComponent implements OnInit {
 
   constructor(private firebaseService: AuthService,
               private router: Router) {
-
   }
 
   ngOnInit() {
@@ -34,14 +34,20 @@ export class RegistroComponent implements OnInit {
   async onRegister(){
     // console.log('Form-> ', this.registerForm.value);
     // asi sacamos email y contraseña del form
-    const {email, password} = this.registerForm.value;
-    try {
-      const user = await this.firebaseService.register(email, password);
-      if (user) {
-        this.router.navigate(['/Principal']);
+    const {email, password, acepto} = this.registerForm.value;
+    if (acepto) {
+      try {
+        this.aceptoTerminos = true;
+        const user = await this.firebaseService.register(email, password);
+        if (user) {
+          this.router.navigate(['/Principal']);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      console.log('entro');
+      this.aceptoTerminos = false;
     }
   }
 }
