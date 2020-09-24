@@ -67,6 +67,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
+import { ColormaniaComponent } from './componentes/colormania/colormania.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +95,8 @@ import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
     SexoPipe,
     TatetiComponent,
     PptComponent,
-    AhorcadoComponent
+    AhorcadoComponent,
+    ColormaniaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,12 @@
 <div class="container" style="width: 400px; height: 400px;">
+  <div class="row text-center">
+    <div class="col">
+      <button type="button" class="btn btn-outline-info my-5" [routerLink]="['/Juegos']">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </button>
+    </div>
+  </div>
   <div *ngIf="turnoUsuario" class="text-center">
     <h1 class="text-warning">Tu turno</h1>
   </div>

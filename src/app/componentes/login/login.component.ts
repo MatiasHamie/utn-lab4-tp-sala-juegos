@@ -10,6 +10,9 @@ import { AuthService } from '../../servicios/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  email: string = '';
+  password: string = '';
+
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -42,6 +45,15 @@ export class LoginComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  llenarCampos(){
+    this.email = 'admin@admin.com';
+    this.password = 'admin1234';
+    // this.loginForm.get('email').value('asd') .patchValue('admin@admin.com');
+    // this.loginForm.get('email').patchValue('admin@admin.com');
+    // this.loginForm.get('email').patchValue('admin@admin.com');
+    // this.loginForm.get('password').patchValue('admin1234');
   }
 
 }
