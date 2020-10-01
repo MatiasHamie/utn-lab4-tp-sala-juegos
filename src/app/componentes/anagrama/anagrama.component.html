@@ -24,7 +24,7 @@
           <label for="palabraIngresadaInput" class="text-white">Ingresar la palabra ordenada</label>
           <input type="text" class="form-control" placeholder="Ingresar aqui" autocomplete="off"
             name="palabraIngresadaInput" [(ngModel)]="palabraIngresada">
-            <button type="button" class="btn btn-warning mt-3" (click)="verificar()" *ngIf="!mensajeAlUsuario">Verificar</button>
+            <button type="button" class="btn btn-warning mt-3" (click)="verificar()" *ngIf="palabraIngresada">Verificar</button>
             <button type="button" class="btn btn-danger mt-3 ml-3" (click)="nuevoJuego()" *ngIf="!mensajeAlUsuario">Nueva Palabra</button>
         </div>
       </form>
@@ -32,16 +32,18 @@
         {{'Palabra Ingresada: ' + palabraIngresada }}
       </div>
     </div>
-    <!-- <div class="row">
-      {{'Palabra Secreta: ' + palabraSecreta }}
-    </div> -->
+    <div class="row" *ngIf="palabraSecreta">
+      <div class="col">
+        {{'Palabra Secreta para correccion por parte del profesor: ' + palabraSecreta }}
+      </div>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-6 mt-4 bg-success" *ngIf="gano">
+    <div class="col mt-4 bg-success" *ngIf="gano">
       <p class="text-center"  style="color: white; font-size: large;" >Ganaste!</p>
     </div>
-    <div class="col-6 mt-4 bg-danger" *ngIf="mensajeAlUsuario">
+    <div class="col mt-4 bg-danger" *ngIf="mensajeAlUsuario">
       <p class="text-center"  style="color: white; font-size: large;" >ERROR! Segui Intentando!</p>
     </div>
   </div>

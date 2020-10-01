@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 @Component({
@@ -6,11 +6,16 @@ import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.
   templateUrl: './ppt.component.html',
   styleUrls: ['./ppt.component.scss']
 })
-export class PptComponent implements OnInit {
+export class PptComponent implements OnInit, OnDestroy {
 
-  constructor(private serviceListaJugadores: ListaJugadoresService) { }
+  constructor(private serviceJugadores: ListaJugadoresService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.serviceJugadores.updatePlayer();
+    console.log('Se llamo al onDestroy');
   }
 
   puntajeUsuario = 0;
@@ -47,7 +52,7 @@ export class PptComponent implements OnInit {
     this.resultadoFinal = 'Vencio con';
     this.estadoPartida = 'Ganaste!';
     this.clearField();
-    this.serviceListaJugadores.gano();
+    this.serviceJugadores.gano();
   }
 
 
@@ -58,7 +63,7 @@ export class PptComponent implements OnInit {
     this.resultadoFinal = 'Perdio con';
     this.estadoPartida = 'Perdiste!';
     this.clearField();
-    this.serviceListaJugadores.perdio();
+    this.serviceJugadores.perdio();
   }
 
   empato(usuario, pc) {

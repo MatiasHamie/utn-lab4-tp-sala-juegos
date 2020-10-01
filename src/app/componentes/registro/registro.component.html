@@ -1,35 +1,39 @@
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
-      <div class="col-10 col-md-8 col-lg-6">
-          <!-- Form -->
-          <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-              <h1 class="text-danger">Bienvenido al formulario de REGISTRO</h1>
-              <p class="description">Debe estar Registrado y Logueado para poder utilizar los juegos</p>
-              <!-- Input fields -->
-              <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="text" class="form-control email" id="email" placeholder="Email..." name="email" autocomplete="off" formControlName="email">
-              </div>
-              <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" class="form-control password" id="password" placeholder="Password..." name="password" autocomplete="off" formControlName="password">
-              </div>
-              <button type="submit" class="btn btn-primary btn-customized">Registro</button>
+    <div class="col-10 col-md-8 col-lg-6">
+      <!-- Form -->
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <h1 class="text-danger">Bienvenido al formulario de REGISTRO</h1>
+        <p class="description">Debe estar Registrado y Logueado para poder utilizar los juegos</p>
+        <!-- Input fields -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input required type="text" class="form-control email" id="email" placeholder="Email..." name="email"
+            autocomplete="off" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input required type="password" class="form-control password" id="password" placeholder="Password..."
+            name="password" autocomplete="off" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-customized">Registro</button>
 
-              <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck" name="acepto" formControlName="acepto">
-                  <!-- <input class="form-check-input" type="checkbox" id="gridCheck" name="acepto" [(ngModel)]="aceptoTerminos" [ngModelOptions]="{standalone: true}"> -->
-                  <label class="form-check-label" for="gridCheck">
-                    <!-- {{'Acepto los terminos y condiciones ' + aceptoTerminos }} -->
-                    Acepto los terminos y condiciones
-                  </label>
-                </div>
-              </div>
-              <p class="description" *ngIf="!aceptoTerminos">Debe aceptar los terminos y condiciones</p>
-              <p class="description">Ya tenes una cuenta? <a href="#" [routerLink]="['/Login']">LOGUEATE ACA</a></p>
-          </form>
-          <!-- Form end -->
-      </div>
+        <div class="form-group">
+          <div class="form-check">
+            <!-- <input class="form-check-input" type="checkbox" id="gridCheck" name="acepto" formControlName="acepto"> -->
+            <input class="form-check-input" type="checkbox" id="gridCheck" name="acepto" [(ngModel)]="aceptoTerminos"
+              [ngModelOptions]="{standalone: true}">
+            <label class="form-check-label" for="gridCheck">
+              <!-- {{'Acepto los terminos y condiciones ' + aceptoTerminos }} -->
+              Acepto los terminos y condiciones
+            </label>
+          </div>
+        </div>
+        <p class="description bg-danger text-white" style="padding: 10px;" *ngIf="!aceptoTerminos">Debe aceptar los
+          terminos y condiciones</p>
+        <p class="description">Ya tenes una cuenta? <a href="#" [routerLink]="['/Login']">LOGUEATE ACA</a></p>
+      </form>
+      <!-- Form end -->
+    </div>
   </div>
 </div>

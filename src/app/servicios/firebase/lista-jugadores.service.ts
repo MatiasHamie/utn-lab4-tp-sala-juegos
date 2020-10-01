@@ -40,7 +40,7 @@ export class ListaJugadoresService {
   ObtenerUsuarioConectadoYSusDatos(email) {
     this.getAllPlayers().subscribe((data: Jugador[]) => {
       let aux = data.find(jugadorIterado => jugadorIterado.email === email);
-      console.log(aux);
+      // console.log(aux);
       if (aux) {
         // console.log('jugador existente');
         this.datosJugadorConectado = aux;
@@ -53,9 +53,9 @@ export class ListaJugadoresService {
   }
 
   gano() {
-    console.log(`Antes de Gano->${this.datosJugadorConectado.email}`, this.datosJugadorConectado.gano);
+    // console.log(`Antes de Gano->${this.datosJugadorConectado.email}`, this.datosJugadorConectado.gano);
     this.datosJugadorConectado.gano++;
-    console.log(`Desp de Gano->${this.datosJugadorConectado.email}`, this.datosJugadorConectado.gano);
+    // console.log(`Desp de Gano->${this.datosJugadorConectado.email}`, this.datosJugadorConectado.gano);
   }
 
   perdio() {

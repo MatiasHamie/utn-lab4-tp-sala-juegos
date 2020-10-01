@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.
   templateUrl: './colormania.component.html',
   styleUrls: ['./colormania.component.scss']
 })
-export class ColormaniaComponent implements OnInit {
+export class ColormaniaComponent implements OnInit, OnDestroy {
 
   colorRandom: string;
   colorRandomBotones: string;
@@ -20,12 +20,17 @@ export class ColormaniaComponent implements OnInit {
   perdio: boolean;
   comenzo: boolean = false;
 
-  constructor(private servicioListaJugadores: ListaJugadoresService) { }
+  constructor(private serviceJugadores: ListaJugadoresService) { }
 
   ngOnInit(): void {
     this.tiempo = 4;
     this.coloresAElegir = ['blue', 'yellow', 'red', 'green', 'black'];
     this.fondoRandomBotones =  ['purple', 'light-green', 'gray'];
+  }
+
+  ngOnDestroy() {
+    this.serviceJugadores.updatePlayer();
+    console.log('Se llamo al onDestroy');
   }
 
   onClick_getBgColor() {
@@ -48,10 +53,10 @@ export class ColormaniaComponent implements OnInit {
     console.log(this.colorElegido);
     if (this.colorElegido === this.colorRandom) {
       this.gano = true;
-      this.servicioListaJugadores.gano();
+      this.serviceJugadores.gano();
     } else {
       this.perdio = true;
-      this.servicioListaJugadores.perdio();
+      this.serviceJugadores.perdio();
     }
     this.comenzo = false;
   }

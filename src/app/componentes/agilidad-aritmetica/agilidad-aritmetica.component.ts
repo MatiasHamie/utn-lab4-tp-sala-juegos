@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
@@ -9,7 +9,7 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
   templateUrl: './agilidad-aritmetica.component.html',
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
-export class AgilidadAritmeticaComponent implements OnInit {
+export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
   nuevoJuego: JuegoAgilidad;
   ocultarVerificar: boolean;
   tiempo: number;
@@ -24,7 +24,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private servicioListaJugadores: ListaJugadoresService) {
+  ngOnDestroy() {
+    this.serviceJugadores.updatePlayer();
+    console.log('Se llamo al onDestroy');
+  }
+
+  constructor(private serviceJugadores: ListaJugadoresService) {
     this.ocultarVerificar = true;
     this.tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
@@ -49,11 +54,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.reiniciarTemporizadorYOcultoBotones();
     if (this.nuevoJuego.numeroIngresado == this.operacionRandomAritmeticaRealizada) {
       this.nuevoJuego.gano = true;
-      this.servicioListaJugadores.gano();
+      this.serviceJugadores.gano();
       // alert('GANO');
     } else {
       this.nuevoJuego.gano = false;
-      this.servicioListaJugadores.perdio();
+      this.serviceJugadores.perdio();
       // alert('PERDIO');
     }
   }

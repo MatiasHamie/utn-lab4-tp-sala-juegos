@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 // Ejemplo tomado de material (ahi se le dice Tile (baldosa) a la interface)
 
@@ -16,7 +17,7 @@ export interface CuadradoGrilla {
   templateUrl: './tateti.component.html',
   styleUrls: ['./tateti.component.scss']
 })
-export class TatetiComponent implements OnInit {
+export class TatetiComponent implements OnInit, OnDestroy {
 
   turnoUsuario: boolean = true;
   ganoUsuario: boolean = false;
@@ -39,9 +40,14 @@ export class TatetiComponent implements OnInit {
     {texto: '', columnas: 1, filas: 1, color: 'lightblue'}// 8
   ];
 
-  constructor() { }
+  constructor(private serviceJugadores: ListaJugadoresService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.serviceJugadores.updatePlayer();
+    console.log('Se llamo al onDestroy');
   }
 
   usuarioColocaLaX(indice: number): void {
@@ -58,7 +64,10 @@ export class TatetiComponent implements OnInit {
         this.ganoPC = this.verSiAlguienGano(); //Otra ves me fijo si alguien gano
         if(this.ganoPC){ // Si gano la pc, el turno termino (solo tema de titulo del html)
           this.turnoUsuario = false;
+          this.serviceJugadores.perdio();
         }
+      }else{
+        this.serviceJugadores.gano();
       }
     }
   }

@@ -1,8 +1,19 @@
-.card {
+/* .card {
   width: 300px;
+}*/
+
+.card-img-top {
+  width: 100%;
+  /* height: 25vw; */
+  height: 18vw;
+  object-fit: cover;
 }
 
-card > img {
-  max-height: 90px;
-  max-width: 90px;
+p {
+  font-size: 12px;
+}
+
+h4{
+  font: bold;
+  font-size: 14px;
 }

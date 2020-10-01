@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { JuegoAnagrama } from '../../clases/juego-anagrama'
 import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
@@ -8,7 +8,7 @@ import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.
   styleUrls: ['./anagrama.component.css']
 })
 
-export class AnagramaComponent implements OnInit {
+export class AnagramaComponent implements OnInit, OnDestroy {
 
   palabrasParaAdivinar = [
     'palabra',
@@ -33,9 +33,14 @@ export class AnagramaComponent implements OnInit {
   temporizador: any;
   tiempo: any = 3;
 
-  constructor(private serviceListaJugadores: ListaJugadoresService) { }
+  constructor(private serviceJugadores: ListaJugadoresService) { }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.serviceJugadores.updatePlayer();
+    console.log('Se llamo al onDestroy');
   }
 
   nuevoJuego() {
@@ -55,9 +60,9 @@ export class AnagramaComponent implements OnInit {
   verificar() {
     if (this.palabraIngresada.toLowerCase() == this.palabraSecreta.toLowerCase()) {
       this.gano = true;
-      this.serviceListaJugadores.gano();
+      this.serviceJugadores.gano();
     } else {
-      this.serviceListaJugadores.perdio();
+      this.serviceJugadores.perdio();
       this.mensajeAlUsuario = true;
       this.temporizador = setInterval(() => {//Comienza a correr el tiempo
         this.tiempo--;

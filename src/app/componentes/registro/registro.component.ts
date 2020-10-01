@@ -35,7 +35,8 @@ export class RegistroComponent implements OnInit {
     // console.log('Form-> ', this.registerForm.value);
     // asi sacamos email y contraseña del form
     const {email, password, acepto} = this.registerForm.value;
-    if (acepto) {
+    console.log(this.aceptoTerminos);
+    if (this.aceptoTerminos) {
       try {
         this.aceptoTerminos = true;
         const user = await this.firebaseService.register(email, password);
