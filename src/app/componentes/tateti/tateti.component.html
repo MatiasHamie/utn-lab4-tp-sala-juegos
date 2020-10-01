@@ -18,10 +18,21 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
-  <div *ngIf="ganoUsuario" class="bg-primary text-center mt-5">
+  <div *ngIf="ganoUsuario" class="bg-success text-center mt-5">
     <h1 class="text-white">Ganaste!!</h1>
   </div>
   <div *ngIf="ganoPC" class="bg-danger text-center mt-5">
     <h1 class="text-white">Perdiste!!</h1>
+  </div>
+  <div *ngIf="empate" class="bg-warning text-center mt-5">
+    <h1 class="text-white">Empataste!!</h1>
+  </div>
+  <div class="row text-center">
+    <div class="col">
+      <button *ngIf="ganoPC || ganoUsuario || empate"
+      type="button" class="btn btn-outline-warning mx-5 my-1" (click)='reiniciar()'>
+      Reiniciar
+    </button>
+    </div>
   </div>
 </div>

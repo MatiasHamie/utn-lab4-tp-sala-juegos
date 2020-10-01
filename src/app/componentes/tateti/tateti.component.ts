@@ -21,6 +21,7 @@ export class TatetiComponent implements OnInit {
   turnoUsuario: boolean = true;
   ganoUsuario: boolean = false;
   ganoPC: boolean = false;
+  empate: boolean = false;
 
   // Lo que hace el tracker es ir guardando los espacios de la grilla
   // que estan ocupados, lo inicializo en null
@@ -46,6 +47,7 @@ export class TatetiComponent implements OnInit {
   usuarioColocaLaX(indice: number): void {
     //Si el punto donde quiere poner el usuario la 'X' es null
     // y si no gano nadie
+
     if (this.tracker[indice] == null && !this.ganoUsuario && !this.ganoPC) {
       this.tracker[indice] = 'X'; //Escribo una X en el tracker (todavia no en la grilla)
       this.cuadradosGrilla[indice].texto = 'X'; //Pongo la X en el cuadrado de la grilla En el indice del tracker
@@ -90,17 +92,41 @@ export class TatetiComponent implements OnInit {
   verSiguienteMovimientoPC(): void{
     let pcYaPusoCirculo = false;
 
-    while(!pcYaPusoCirculo){
+    console.log('every->',this.tracker.every(dato => dato !== null));
+    if(this.tracker.every(dato => dato !== null)){
+      // console.log('empato');
+      this.empate = true;
+    } else {
+      while(!pcYaPusoCirculo ){
+        // console.log(this.tracker);
+        let posibleIndiceParaMoverPC = Math.floor(Math.random() * 9);
+        // console.log(Math.floor(Math.random() * 9));
 
-      let posibleIndiceParaMoverPC = Math.floor(Math.random() * 9);
-      console.log(Math.floor(Math.random() * 9));
-
-      if(this.tracker[posibleIndiceParaMoverPC] == null){
-        this.tracker[posibleIndiceParaMoverPC] = '0';
-        this.cuadradosGrilla[posibleIndiceParaMoverPC].texto = '0';
-        this.turnoUsuario = true;
-        pcYaPusoCirculo = true;
+        if(this.tracker[posibleIndiceParaMoverPC] == null){
+          this.tracker[posibleIndiceParaMoverPC] = '0';
+          this.cuadradosGrilla[posibleIndiceParaMoverPC].texto = '0';
+          this.turnoUsuario = true;
+          pcYaPusoCirculo = true;
+        }
       }
     }
+  }
+
+  reiniciar(){
+    this.tracker = this.tracker.fill(null);
+    this.ganoPC = false;
+    this.ganoUsuario = false;
+    this.empate = false;
+    this.cuadradosGrilla = [
+      {texto: '', columnas: 1, filas: 1, color: 'lightgreen'},// 0
+      {texto: '', columnas: 1, filas: 1, color: 'lightblue'},// 1
+      {texto: '', columnas: 1, filas: 1, color: 'lightgrey'},// 2
+      {texto: '', columnas: 1, filas: 1, color: '#DDBDF1'},// 3
+      {texto: '', columnas: 1, filas: 1, color: 'ligthorange'},// 4
+      {texto: '', columnas: 1, filas: 1, color: 'lightgreen'},// 5
+      {texto: '', columnas: 1, filas: 1, color: 'lightyellow'},// 6
+      {texto: '', columnas: 1, filas: 1, color: 'lightpink'},// 7
+      {texto: '', columnas: 1, filas: 1, color: 'lightblue'}// 8
+    ]
   }
 }
