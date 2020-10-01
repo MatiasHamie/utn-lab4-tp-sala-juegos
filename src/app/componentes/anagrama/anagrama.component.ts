@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoAnagrama } from '../../clases/juego-anagrama'
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 @Component({
   selector: 'app-anagrama',
@@ -32,29 +33,31 @@ export class AnagramaComponent implements OnInit {
   temporizador: any;
   tiempo: any = 3;
 
-  constructor() { }
+  constructor(private serviceListaJugadores: ListaJugadoresService) { }
 
   ngOnInit() {
   }
 
-  nuevoJuego(){
+  nuevoJuego() {
     this.gano = false;
     this.palabraSecreta = this.palabrasParaAdivinar[Math.floor(Math.random() * this.palabrasParaAdivinar.length + 1)];
 
     let arrayDeCaracteresOrdenados = [...this.palabraSecreta];
 
     this.palabraSecretaMezclada = arrayDeCaracteresOrdenados
-    .map((a) => ({sort: Math.random(), value: a}))//Le agrego una key numerica aleatoria
-    .sort((a, b) => a.sort - b.sort) //Las ordeno de menor a mayor
-    .map((a) => a.value)//Hago una copia de los value al array nuevo
-    .toString().replace(/[\,]/gm, " ");
+      .map((a) => ({ sort: Math.random(), value: a }))//Le agrego una key numerica aleatoria
+      .sort((a, b) => a.sort - b.sort) //Las ordeno de menor a mayor
+      .map((a) => a.value)//Hago una copia de los value al array nuevo
+      .toString().replace(/[\,]/gm, " ");
 
   }
 
-  verificar(){
-    if(this.palabraIngresada.toLowerCase() == this.palabraSecreta.toLowerCase()){
+  verificar() {
+    if (this.palabraIngresada.toLowerCase() == this.palabraSecreta.toLowerCase()) {
       this.gano = true;
+      this.serviceListaJugadores.gano();
     } else {
+      this.serviceListaJugadores.perdio();
       this.mensajeAlUsuario = true;
       this.temporizador = setInterval(() => {//Comienza a correr el tiempo
         this.tiempo--;

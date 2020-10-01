@@ -1,47 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { JugadoresService } from '../../servicios/jugadores.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { AuthService } from '../../servicios/auth.service';
+import { Jugador } from '../../clases/jugador';
+// import { JugadoresService } from '../../servicios/jugadores.service';
+import { ListaJugadoresService } from "../../servicios/firebase/lista-jugadores.service";
 @Component({
   selector: 'app-jugadores-listado',
   templateUrl: './jugadores-listado.component.html',
   styleUrls: ['./jugadores-listado.component.css']
 })
-export class JugadoresListadoComponent implements OnInit {
+export class JugadoresListadoComponent implements OnInit, OnDestroy {
 
-  listado:any
-  miJugadoresServicio:JugadoresService
-  
-    constructor(serviceJugadores:JugadoresService) {
-      this.miJugadoresServicio = serviceJugadores;
-      
-    }
-    
+  listaTodosLosJugadores: Jugador[];
+  traerTodosLosJugadores$: Subscription;
 
+  constructor(private serviceJugadores: ListaJugadoresService) {
+  }
 
   ngOnInit() {
+    this.TraerTodos();
   }
 
+  ngOnDestroy(){
+    this.traerTodosLosJugadores$.unsubscribe();
+  }
 
   TraerTodos(){
-    //alert("totos");
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
+    this.traerTodosLosJugadores$ = this.serviceJugadores.getAllPlayers().subscribe((data: Jugador[]) => {
+      this.listaTodosLosJugadores = data;
+    });
   }
-  TraerGanadores(){
-    this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
-  }
-  TraerPerdedores(){
-    this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
-  }
-
 }

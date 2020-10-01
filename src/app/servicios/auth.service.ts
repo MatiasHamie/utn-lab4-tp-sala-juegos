@@ -4,13 +4,16 @@ import { User } from 'firebase'
 import { auth } from "firebase/app";
 import { AngularFireAuth } from "@angular/fire/auth"
 import { first } from 'rxjs/internal/operators/first';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+import { Jugador } from '../clases/jugador';
+import { JugadoresService } from './jugadores.service';
+import { ListaJugadoresService } from './firebase/lista-jugadores.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  public user: User;
 
   constructor(public afAuth: AngularFireAuth) { }
 

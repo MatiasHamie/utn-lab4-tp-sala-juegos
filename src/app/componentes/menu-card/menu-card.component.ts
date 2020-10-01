@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 import { AuthService } from '../../servicios/auth.service';
 @Component({
@@ -13,11 +14,11 @@ export class MenuCardComponent implements OnInit {
   usuarioConectado$: Observable<any> = this.firebase.afAuth.user;
 
   constructor(private firebase: AuthService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+              private servicioListaJugadores: ListaJugadoresService) { }
 
 
   ngOnInit() {
+    this.servicioListaJugadores.inicializarDatosUsuarioConectado();
   }
   // Juego(tipo: string) {
   //   switch (tipo) {

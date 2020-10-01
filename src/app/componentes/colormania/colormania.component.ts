@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 @Component({
   selector: 'app-colormania',
@@ -19,7 +20,7 @@ export class ColormaniaComponent implements OnInit {
   perdio: boolean;
   comenzo: boolean = false;
 
-  constructor() { }
+  constructor(private servicioListaJugadores: ListaJugadoresService) { }
 
   ngOnInit(): void {
     this.tiempo = 4;
@@ -47,12 +48,10 @@ export class ColormaniaComponent implements OnInit {
     console.log(this.colorElegido);
     if (this.colorElegido === this.colorRandom) {
       this.gano = true;
-      console.log('gano');
-      // alert('GANO');
+      this.servicioListaJugadores.gano();
     } else {
       this.perdio = true;
-      console.log('perdio');
-      // alert('PERDIO');
+      this.servicioListaJugadores.perdio();
     }
     this.comenzo = false;
   }

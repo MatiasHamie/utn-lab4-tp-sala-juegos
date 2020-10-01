@@ -28,14 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // Entrar() {
-  //   if (this.usuario === 'admin' && this.clave === 'admin') {
-  //     this.router.navigate(['/Principal']);
-  //   }
-  // }
-
   onLogin(){
-    // console.log('Form-> ', this.loginForm.value);
     const {email, password} = this.loginForm.value;
     try {
       const user = this.firebase.login(email, password);
@@ -50,10 +43,5 @@ export class LoginComponent implements OnInit {
   llenarCampos(){
     this.email = 'admin@admin.com';
     this.password = 'admin1234';
-    // this.loginForm.get('email').value('asd') .patchValue('admin@admin.com');
-    // this.loginForm.get('email').patchValue('admin@admin.com');
-    // this.loginForm.get('email').patchValue('admin@admin.com');
-    // this.loginForm.get('password').patchValue('admin1234');
   }
-
 }

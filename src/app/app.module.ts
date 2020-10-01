@@ -63,11 +63,15 @@ import { PptComponent } from './componentes/ppt/ppt.component';
 import { ReactiveFormsModule } from "@angular/forms";
 // import {MatIconModule} from '@angular/material/icon';
 
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { environment } from '../environments/environment';
 import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { ColormaniaComponent } from './componentes/colormania/colormania.component';
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +115,8 @@ import { ColormaniaComponent } from './componentes/colormania/colormania.compone
     MatInputModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule // storage
     // MatIconModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo

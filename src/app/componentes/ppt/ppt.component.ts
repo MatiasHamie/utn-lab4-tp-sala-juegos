@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 
 @Component({
   selector: 'app-ppt',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PptComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceListaJugadores: ListaJugadoresService) { }
 
   ngOnInit(): void {
   }
@@ -46,6 +47,7 @@ export class PptComponent implements OnInit {
     this.resultadoFinal = 'Vencio con';
     this.estadoPartida = 'Ganaste!';
     this.clearField();
+    this.serviceListaJugadores.gano();
   }
 
 
@@ -56,6 +58,7 @@ export class PptComponent implements OnInit {
     this.resultadoFinal = 'Perdio con';
     this.estadoPartida = 'Perdiste!';
     this.clearField();
+    this.serviceListaJugadores.perdio();
   }
 
   empato(usuario, pc) {

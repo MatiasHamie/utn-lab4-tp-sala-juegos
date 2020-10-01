@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ListaJugadoresService } from '../../servicios/firebase/lista-jugadores.service';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 // import { Subscription } from "rxjs";
@@ -23,7 +24,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor() {
+  constructor(private servicioListaJugadores: ListaJugadoresService) {
     this.ocultarVerificar = true;
     this.tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
@@ -48,9 +49,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.reiniciarTemporizadorYOcultoBotones();
     if (this.nuevoJuego.numeroIngresado == this.operacionRandomAritmeticaRealizada) {
       this.nuevoJuego.gano = true;
+      this.servicioListaJugadores.gano();
       // alert('GANO');
     } else {
       this.nuevoJuego.gano = false;
+      this.servicioListaJugadores.perdio();
       // alert('PERDIO');
     }
   }
