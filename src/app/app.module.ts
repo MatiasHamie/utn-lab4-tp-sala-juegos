@@ -71,6 +71,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { environment } from '../environments/environment';
     TatetiComponent,
     PptComponent,
     AhorcadoComponent,
-    ColormaniaComponent
+    ColormaniaComponent,
+    MemotestComponent
   ],
   imports: [
     BrowserModule,

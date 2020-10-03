@@ -26,6 +26,7 @@ import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { AhorcadoComponent } from '../componentes/ahorcado/ahorcado.component';
 import { ColormaniaComponent } from '../componentes/colormania/colormania.component';
+import { MemotestComponent } from '../componentes/memotest/memotest.component';
 
 
 // declaro donde quiero que se dirija
@@ -52,7 +53,8 @@ const MiRuteo = [
       { path: 'Tateti', component: TatetiComponent },
       { path: 'ppt', component: PptComponent },
       { path: 'ahorcado', component: AhorcadoComponent },
-      { path: 'colormania', component: ColormaniaComponent }
+      { path: 'colormania', component: ColormaniaComponent },
+      { path: 'memotest', component: MemotestComponent }
     ]
   },
   { path: '', component: PrincipalComponent },

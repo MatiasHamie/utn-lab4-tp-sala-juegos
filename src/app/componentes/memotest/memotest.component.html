@@ -1,0 +1,39 @@
+<div class="row text-center">
+  <div class="col">
+    <button type="button" class="btn btn-outline-info my-5" [routerLink]="['/Juegos']">
+      <i class="fas fa-arrow-left"></i>
+      Volver
+    </button>
+  </div>
+</div>
+
+<ul class="list-group text-center">
+  <li class="list-group-item ">
+    <button class="btn btn-warning" type="button" (click)="NuevoJuego()"
+      *ngIf="!empezo">Jugar</button>
+
+      <div class="row my-3 d-flex justify-content-center" *ngIf="termino">
+        <div class="col-5">
+          <div class="text-center">
+            <div  class="alert alert-success">
+              Ganaste!!
+            </div>
+          </div>
+          <button class="btn btn-warning" type="button" (click)="Reiniciar()">Jugar de nuevo</button>
+        </div>
+      </div>
+
+    <div class="tablero" *ngIf="!termino">
+      <div class="card-item" *ngFor="let carta of valoresDeLasCartas" [class.flip]="carta.flip || carta.isCorrect"
+        (click)="onClick(carta)">
+        <div class="card-inner">
+          <div class="frente">
+            <!-- <img src="../../../assets/imagenes/icono_memotest_cartas.jpeg" alt="logoUTN" style="width:120px;height:170px;"> -->
+          </div>
+          <div class="atras">{{carta.letra}}</div>
+        </div>
+      </div>
+    </div>
+
+  </li>
+</ul>

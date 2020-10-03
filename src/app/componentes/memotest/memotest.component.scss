@@ -1,0 +1,56 @@
+.tablero {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card-item {
+    background-color: transparent;
+    // perspective: 1000px; /* 3D effect */
+    margin: 1vw 1%;
+
+    width: 20%;
+    height: 14vw;
+    &.flip {
+        .card-inner {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+
+  .frente,
+  .atras {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+  }
+  .frente {
+      background-color:lightgreen;
+      color: white;
+  }
+  .atras {
+      background-color: coral;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 4vw;
+  }
+}
+@media screen and (max-width: 1400px){
+    .card-item {
+        background-color: transparent;
+    }
+}

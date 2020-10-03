@@ -2,12 +2,11 @@
 
 <div class="card-deck py-5 bg-light">
   <div class="container bg-muted" *ngIf="usuarioConectado$ | async as user">
-    <!-- <div class="row flex d-flex justify-content-center align-items-center mt-3"> -->
     <div class="row">
       <div class="col col-md-4">
         <div class="card mb-4 shadow-sm">
           <div class="card-image">
-            <img src="./assets/imagenes/anagrama.jpg" class="card-img-top">
+            <img src="../../../assets/imagenes/anagrama.jpg" class="card-img-top">
           </div>
           <div class="card-body">
             <h4 class="text-center">Anagrama</h4>
@@ -24,7 +23,7 @@
       <div class="col col-md-4">
         <div class="card mb-4 shadow-sm">
           <div class="card-image">
-            <img src="./assets/imagenes/ppt.jpg" class="card-img-top">
+            <img src="../../../assets/imagenes/ppt.jpg" class="card-img-top">
           </div>
           <div class="card-body">
             <h4 class="text-center">Piedra, Papel o Tijera</h4>
@@ -56,7 +55,7 @@
       <div class="col col-md-4">
         <div class="card mb-4 shadow-sm">
           <div class="card-image">
-            <img src="./assets/imagenes/tateti.jpg" class="card-img-top">
+            <img src="../../../assets/imagenes/tateti.jpg" class="card-img-top">
           </div>
           <div class="card-body">
             <h4 class="text-center">Ta Te Ti</h4>
@@ -72,124 +71,33 @@
       <div class="col col-md-4">
         <div class="card mb-4 shadow-sm">
           <div class="card-image">
-            <img src="./assets/imagenes/adivina_el_color.jpg" class="card-img-top">
+            <img src="../../../assets/imagenes/adivina_el_color.jpg" class="card-img-top">
           </div>
           <div class="card-body">
             <h4 class="text-center">CoLoRMaNia</h4>
             <div class="text-black text-center">
               <p>Aparece un color y debes hacer click en el boton con la descripcion de ese color en 3 segundos</p>
               <a class="btn btn-warning" routerLink="/Juegos/colormania">Jugar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-image">
+            <img src="../../../assets/imagenes/cerebro.jpg" class="card-img-top">
+          </div>
+          <div class="card-body">
+            <h4 class="text-center">MemoTest</h4>
+            <div class="text-black text-center">
+              <p>Debes encontrar los pares de dibujos iguales haciendo click en cada cuadrado, si encontras todas las
+                parejas ganas!</p>
+              <a class="btn btn-warning" routerLink="/Juegos/memotest">Jugar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="col">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-image">
-            <img src="./assets/imagenes/ppt.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h4 class="text-center">Piedra, Papel o Tijera</h4>
-            <div class="text-black text-center">
-              <p>El papel envuelve a la piedra. Gana el papel.
-                La piedra dobla la punta de las tijeras. Gana la piedra.
-                Las tijeras cortan el papel. Ganan las tijeras.</p>
-              <a class="btn btn-warning" routerLink="/Juegos/ppt">Jugar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-image">
-            <img src="./assets/imagenes/cerebro.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h4 class="text-center">Agilidad Aritmetica</h4>
-            <div class="text-black text-center">
-              <p>Se presenta una cuenta aritmética y el jugador un tiempo para
-                contestar</p>
-              <a class="btn btn-warning" routerLink="/Juegos/Agilidad">Jugar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-image">
-            <img src="./assets/imagenes/adivina.png" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h4 class="text-center">Adivina el numero</h4>
-            <div class="text-black text-center">
-              <p>Se debe adivinar el número secreto</p>
-              <a class="btn btn-warning" routerLink="/Juegos/Adivina">Jugar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-image">
-            <img src="./assets/imagenes/tateti.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h4 class="text-center">Ta Te Ti</h4>
-            <div class="text-black text-center">
-              <p>Por turnos, cada jugador debe poner una X o un O,
-                intentando hacer una línea vertical, horizontal o diagonal</p>
-              <a class="btn btn-warning" routerLink="/Juegos/Tateti">Jugar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-image">
-            <img src="./assets/imagenes/adivina_el_color.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h4 class="text-center">CoLoRMaNia</h4>
-            <div class="text-black text-center">
-              <p>Aparece un color y debes hacer click en el boton con la descripcion de ese color en 3 segundos</p>
-              <a class="btn btn-warning" routerLink="/Juegos/colormania">Jugar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 </div>
-<!-- </div> -->
-
-<!-- <div class="container" >
-    <div class="card">
-      <img class="img-thumbnail"   src="./assets/imagenes/cerebro.jpg" alt="Avatar" style="width:100%">
-      <h1>Velocidad y agilidad aritmética </h1>
-      <p class="title">Juego de agilidad mental</p>
-      <p>UTN FRA </p>
-      <p><button class="button"  (click)="Juego('Agilidad')">Jugar</button></p>
-
-    </div>
-
-    <div class="card">
-      <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
-      <h1>Piedra Papel o Tijera</h1>
-      <p class="title">Juega contra la máquina</p>
-      <p>UTN FRA </p>
-      <p>           <button class="button"  (click)="Juego('PPT')">Jugar</button></p>
-    </div>
-    <div class="card">
-      <img  class="img-thumbnail"  src="./assets/imagenes/adivina.png" alt="Avatar" style="width:100%">
-      <h1>Adivina el número secreto</h1>
-      <p class="title">Juega de estrategia</p>
-      <p>UTN FRA </p>
-      <p><button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-    </div>
-  </div> -->
